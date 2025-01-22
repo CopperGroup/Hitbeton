@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
@@ -6,9 +6,24 @@ import Link from "next/link"
 import Image from "next/image"
 
 const categories = [
-  { name: "Houses", image: "/assets/1.jpeg", href: "/catalog" },
-  { name: "Chocolates", image: "/assets/2.jpeg", href: "/catalog" },
-  { name: "Sweets", image: "/assets/loginbackground.jpg", href: "/catalog" },
+  {
+    name: "Abstract Forms",
+    description: "Contemporary sculptural expressions",
+    image:"/assets/1.jpg",
+    href: "/collection/abstract",
+  },
+  {
+    name: "Geometric Series",
+    description: "Precision in concrete design",
+    image: "/assets/2.jpg",
+    href: "/collection/geometric",
+  },
+  {
+    name: "Architectural Elements",
+    description: "Functional art pieces",
+    image: "/assets/3.jpg",
+    href: "/collection/architectural",
+  },
 ]
 
 export default function Categories() {
@@ -16,59 +31,64 @@ export default function Categories() {
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 })
 
   return (
-    <motion.section 
+    <motion.section
       ref={sectionRef}
-      className="w-full py-16 bg-gradient-to-b from-white to-gray-50"
+      className="w-full py-24 bg-gradient-to-b from-[#F5F5F5] to-white"
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="w-full flex justify-center items-center">
         <div className="w-full max-w-[1680px] px-12 max-lg:px-9 max-[500px]:px-7">
-          <motion.h2 
-            className="text-heading1-bold text-black mb-4 text-center"
+          <motion.h2
+            className="text-heading1-semibold text-[#2C2C2C] mb-6 text-center tracking-wide"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Категорії товару
+            Collection Categories
           </motion.h2>
-          <motion.div 
-            className="w-16 h-1 bg-theme-3 mx-auto mb-6"
+          <motion.div
+            className="w-24 h-[1px] bg-[#8B4513] mx-auto mb-8 opacity-60"
             initial={{ width: 0 }}
-            animate={isInView ? { width: 64 } : { width: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            animate={isInView ? { width: 96 } : { width: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
           />
-          <motion.p 
-            className="text-body-medium text-gray-600 mb-16 text-center max-w-2xl mx-auto"
+          <motion.p
+            className="text-body-medium text-[#666666] mb-20 text-center max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Get something for your taste
+            Discover our curated collection of handcrafted concrete sculptures
           </motion.p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {categories.map((category, index) => (
               <motion.div
                 key={category.name}
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                transition={{ duration: 0.8, delay: 0.4 + index * 0.2 }}
               >
                 <Link href={category.href} className="group block">
-                  <div className="relative w-full h-[400px] rounded-3xl overflow-hidden shadow-lg transition-all duration-300 group-hover:shadow-xl max-[425px]:h-[300px] max-[380px]:h-[250px]">
+                  <div className="relative w-full h-[500px] rounded-2xl overflow-hidden transition-all duration-500 group-hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] max-[425px]:h-[400px] max-[380px]:h-[350px]">
                     <Image
-                      src={category.image}
+                      src={category.image || "/placeholder.svg"}
                       alt={category.name}
                       layout="fill"
                       objectFit="cover"
-                      className="transition-transform duration-500 group-hover:scale-110"
+                      className="transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-80" />
-                    <div className="absolute inset-0 flex flex-col items-center justify-end p-8">
-                      <h3 className="text-heading3-bold text-white text-center mb-2 transform transition-transform duration-300 group-hover:translate-y-[-10px]">{category.name}</h3>
-                      <span className="text-base-medium text-white bg-theme-3 px-4 py-2 rounded-full opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-                        Переглянути
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-70" />
+                    <div className="absolute inset-0 flex flex-col items-center justify-end p-10">
+                      <h3 className="text-heading3-bold text-white text-center mb-3 transform transition-transform duration-500 ease-out group-hover:translate-y-[-8px] tracking-wide">
+                        {category.name}
+                      </h3>
+                      <p className="text-base-regular text-white/80 text-center mb-6 transform transition-transform duration-500 ease-out opacity-0 group-hover:opacity-100 group-hover:translate-y-[-8px]">
+                        {category.description}
+                      </p>
+                      <span className="text-small-semibold text-white border border-white/30 backdrop-blur-sm px-6 py-2 rounded-full opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
+                        Explore Collection
                       </span>
                     </div>
                   </div>
@@ -78,18 +98,18 @@ export default function Categories() {
           </div>
         </div>
       </div>
-      <motion.div 
-        className="w-full flex justify-center mt-12"
+      <motion.div
+        className="w-full flex justify-center mt-16"
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.5, delay: 0.7 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
       >
-        <Link 
-          href="/catalog" 
-          className="text-lg font-semibold text-theme-3 hover:text-opacity-80 transition-colors duration-300 relative group"
+        <Link
+          href="/collection"
+          className="text-body-semibold text-[#2C2C2C] hover:text-[#8B4513] transition-colors duration-300 relative group tracking-wide"
         >
-          <span className="relative z-10">Переглянути всі категорії</span>
-          <span className="absolute bottom-0 left-0 w-full h-0.5 bg-theme-3 transform origin-left transition-all duration-300 group-hover:scale-x-100 scale-x-0"></span>
+          <span className="relative z-10">View All Collections</span>
+          <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#8B4513] transform origin-left transition-all duration-300 group-hover:scale-x-100 scale-x-0"></span>
         </Link>
       </motion.div>
     </motion.section>

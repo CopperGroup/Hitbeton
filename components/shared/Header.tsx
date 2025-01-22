@@ -68,7 +68,7 @@ export default function Header({ email, user }: { email: string; user: string })
         >
           <Link href="/" className="w-fit flex gap-2 justify-center items-center">
             {/* <Logo /> */}
-            <p className="text-base-semibold text-white">FO Scandinavia</p>
+            <p className="text-base-semibold text-white">@HitBeton</p>
           </Link>
         </div>
         <nav className="w-fit h-11 flex gap-1 justify-center items-center rounded-full bg-[#1f1f1f] px-2 max-lg:hidden">

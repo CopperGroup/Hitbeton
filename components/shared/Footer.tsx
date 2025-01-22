@@ -52,9 +52,9 @@ const Footer = () => {
           <div className="w-full">
             <h3 className="text-lg font-semibold mb-4">Каталоги</h3>
             <ul className="space-y-2">
-              <li><Link href='/catalog' className="hover:text-blue-400 transition-colors">Смаколики</Link></li>
-              <li><Link href='/catalog' className="hover:text-blue-400 transition-colors">Смаколики</Link></li>
-              <li><Link href='/catalog' className="hover:text-blue-400 transition-colors">Смаколики</Link></li>
+              <li><Link href='/catalog' className="hover:text-blue-400 transition-colors">Бетон</Link></li>
+              <li><Link href='/catalog' className="hover:text-blue-400 transition-colors">Бетон</Link></li>
+              <li><Link href='/catalog' className="hover:text-blue-400 transition-colors">Бетон</Link></li>
             </ul>
           </div>
 
@@ -83,10 +83,10 @@ const Footer = () => {
         >
           <div className="flex flex-col lg:flex-row justify-between items-center">
             <p className="text-sm text-gray-400 mb-4 lg:mb-0 text-center lg:text-left">
-              © {currentYear}<span className="font-semibold">FO SCANDINAVIA</span>. Всі права захищені.
+              © {currentYear}<span className="font-semibold">@HitBeton</span>. Всі права захищені.
             </p>
             <div className="flex flex-col items-center lg:items-end space-y-2 lg:space-y-0">
-              <span className="text-sm text-gray-400 text-center lg:text-right">Солодко</span>
+              {/* <span className="text-sm text-gray-400 text-center lg:text-right">Солодко</span> */}
               <div className="flex space-x-2 mt-2 lg:mt-1">
                 <Image className="h-6 w-auto" width={88} height={18} src='/assets/botticelli.png' alt='Botticelli logo' />
                 <Image className="h-6 w-auto" width={55} height={18} src='/assets/juventa.png' alt='Juventa logo' />
