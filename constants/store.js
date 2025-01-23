@@ -1,5 +1,5 @@
 export const Store = {
-    name: "FO Scandinavia",
+    name: "Hitbeton",
     currency: "UAH",
     currency_sign: "₴",
 }
