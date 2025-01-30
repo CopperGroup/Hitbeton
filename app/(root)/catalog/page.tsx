@@ -18,7 +18,7 @@ const Catalog = async ({searchParams,data}:any) => {
 
   let filtredProducts: any[] = await fetchCatalog();
   
-  const email = await getSession()
+  const email = await getSession();
 
   const categories = Array.from(new Set (filtredProducts.map(item => item.category))).filter(function(item) {return item !== '';});
   
